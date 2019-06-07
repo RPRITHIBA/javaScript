@@ -1,0 +1,40 @@
+//1
+var a = "call"; 
+console.log(a);
+
+//2
+var x = 5 + 5;
+var y = "5" + 5;
+var z = "Hello" + 5;
+console.log(x);
+console.log(y);
+console.log(z);
+
+//3
+var fn1 = function(arg)
+{
+  return arg;
+}
+var result  = fn1(3);
+console.log(result);
+
+//4
+function func() 
+{
+if(true) 
+{
+var a ='ok';
+}
+func();
+console.log(a);
+}
+
+//5
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.pop();
+console.log(fruits);
+var fruits = ["Banana", "Orange", "Apple", "Mango"];  
+fruits.push("grape");
+console.log(fruits);
+
+
