@@ -1,0 +1,55 @@
+//1
+var promise = new Promise(function(resolve, reject) { 
+const x = "hello"; 
+const y = "hello"
+if(x === y) { 
+	resolve(); 
+} else { 
+	reject(); 
+} 
+}); 
+
+promise. 
+	then(function () { 
+		console.log('Success'); 
+	}). 
+	catch(function () { 
+		console.log(' error'); 
+	}); 
+
+
+//2
+var promise = new Promise(function(resolve, reject) { 
+    resolve('message'); 
+})  
+promise 
+    .then(function(successMessage) { 
+        console.log(success); 
+    }, function(errorMessage) { 
+        console.log(error); 
+    }) 
+    
+    
+//3
+var promise = new Promise(function(resolve, reject) { 
+	reject(' Rejected') 
+}) 
+promise 
+	.then(function(successMessage) { 
+		console.log(successMessage); 
+	}, function(errorMessage) { 
+		console.log(errorMessage); 
+	}) 
+
+
+//4
+var promise = new Promise(function(resolve, reject) { 
+    reject(' Rejected') 
+})   
+promise 
+    .then(function(successMessage) { 
+        console.log(successMessage); 
+    }) 
+    .catch(function(errorMessage) { 
+        console.log(errorMessage); 
+    }); 
