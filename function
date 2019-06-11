@@ -1,0 +1,36 @@
+//1--passing argument
+function sap(from, via){  
+alert(' message from ' + from + ' via '+ via); }
+sap('diviya', 'WhatsApp'); 
+sap('ginifer', 'Telegram');
+
+
+//2--local
+function displayMes(){   
+let data = 'important message';   
+alert(data); }
+displayMes();  
+alert(data);
+
+//3--outer
+let message = ' message '; 
+function displayMessage(){   
+alert('alert '+message); }   
+displayMessage(); 
+alert(message);
+
+//4
+function sayHello(from, via){  
+alert('You have a message from ' + from + ' via '+ via); }
+sayHello('Mom');
+
+//5
+const a = (data, callback) => callback(data+1, Result); 
+const b = (data, callback) => callback(data+2);
+const Result = (data) => console.log(data);
+const fn = (callback) => {
+ setTimeout(() => {
+ callback(500, b);
+ }, 1000);
+};
+ fn(a);
