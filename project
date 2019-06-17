@@ -1,0 +1,89 @@
+const http = require("http")
+const mysql = require('mysql');
+const express = require('express');
+var app = express();
+const bodyparser = require('body-parser');
+var methodOverride = require('method-override')
+
+app.use(bodyparser.json());
+app.use(express.json());
+app.use(bodyparser.urlencoded({extended: true}));
+app.use(methodOverride('X-HTTP-Method-Override'))
+var path = require('path');
+const router = express.Router();
+router.get('data/id',function(req,res){
+res.sendfile(path.join(NODEJS+'set.html'));
+});
+
+var sqlconnection = mysql.createConnection({ 
+ host:'northside.in',
+ user:'shakir',
+ password:'shakir123',
+ database:'shakir_test'
+});
+
+sqlconnection.connect((err)=>{ 
+ if(!err)
+ console.log('Success: DB Connected');
+ else
+ console.log('Failed Connection \n error:'+JSON.stringify(err,undefined,2));
+});
+
+app.listen(5000,()=>console.log('express server is runnig at port no:5000'))
+
+//GET 
+
+app.get('/data',(req,res)=>
+{
+ sqlconnection.query('select * from prithiba',(err,rows,fields)=>
+ {
+ if(!err)
+ res.send(rows);
+ else
+ console.log(err);
+ });
+});
+
+//GET PARTICULAR ID 
+
+app.get('/data/:id',(req,res)=>{
+    
+ sqlconnection.query('Select * from prithiba where id=?',[req.query.id],(err,rows,fields)=>{
+ if(!err)
+ res.send(rows);
+ else
+ console.log(err);
+ });
+});
+
+//DELETE PARTICULAR ID
+
+app.delete('/data/delete:id',(req,res)=>{
+ sqlconnection.query('Delete from prithiba where id = ?',[req.params.id],(err,rows,fields)=>{
+ if(!err)
+ res.send('deleted success');
+ else
+ console.log(err);
+ });
+});
+
+//POST
+
+app.post('/data/insert',function (req,res){
+    var post = [req.body.id,req.body.NAME,req.body.dest];
+ //var params=req.body;
+ //console.log(params);
+ sqlconnection.query('Insert into prithiba SET id=?,`name`=?,`dest`=?',post,function (error,results,fields){
+ if(!err)
+ res.send("Inserted");});
+
+});
+
+//PUT
+
+app.put('/data/update',function (req,res){
+ sqlconnection.query('Update prithiba SET NAME=? where id=?',[req.body.NAME,req.body.id],function (error,results,fields){
+ if(!err)
+ res.send("Updated");});
+ //res.end(JSON.stringify(results));
+});
