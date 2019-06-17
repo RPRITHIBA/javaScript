@@ -1,0 +1,56 @@
+<html>
+<body>
+<h1><center> Data </center></h1>
+<form action ="http://localhost:5000/data/id" method="get">
+    <center><h2 style="color:blue;">Personal information:</h2></center>
+    <center><fieldset >
+	<div>
+    ID  :   <input type="number" name="id"> 
+	<br>
+    <select name = "dropdown">
+        <option value = "GET"> GET</option><br>
+        <option value = "POST"> POST</option><br>
+        <option value = "PUT" > PUT</option><br>
+    </select><br>
+<input type = "submit" value = "submit">
+	</div></fieldset >
+	</center>
+</form>
+</body>
+</html>
+-----------------------------------------------------------------------
+<html>
+<body>
+<h2><center> Form Data </center></h2>
+<form action="http://localhost:5000/data/insert" method="post">
+    <center><h1 style="color:blue;">Personal information:</h1></center>
+    <center><fieldset >
+	<div>
+	<div><br>   ID      :   <input type="text" id="ID"> </br></div>
+  <div><br>     NAME    :   <input type="text" name="NAME"> </br></div>
+    <div><br>   DEST    :   <input type="text" dest="DEST">  </br></div>
+	<br>
+    <input type="radio" name="node" value="POST"> pot<br>
+    <input type="submit" value="submit" >
+	</div></fieldset >
+	</center>
+</form>
+</body>
+</html>
+------------------------------------------------------------------------------
+<html>
+<body>
+<h2><center> Form Data </center></h2>
+<form action="http://localhost:5000/data/update" method="put">
+    <center><h1 style="color:blue;">Personal information:</h1></center>
+    <center><fieldset >
+	<div>
+	<div><br>   ID      :   <input type="text" id="ID"> </br></div>
+    <div><br>   NAME    :   <input type="text" NAME="NAME">  </br></div>
+	<br>
+    <input type="submit" value="submit" >
+	</div></fieldset >
+	</center>
+</form>
+</body>
+</html>
